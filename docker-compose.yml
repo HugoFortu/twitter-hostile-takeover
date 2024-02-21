@@ -32,6 +32,5 @@ services:
       context: frontend
     ports:
       - "3000:3000"
-      # - "24678:24678"
     volumes:
-      - ./frontend:/usr/src/app
+      - ./frontend:/usr/src/nuxt-app
