@@ -1,18 +1,18 @@
-FROM node:20-slim as base
+FROM node:20-alpine
 
-ENV NODE_ENV=development
+RUN mkdir -p /usr/src/nuxt-app
+WORKDIR /usr/src/nuxt-app
 
-WORKDIR /src/app
+RUN apk update && apk upgrade
 
-# Build
-FROM base as build
+COPY . /usr/src/nuxt-app/
 
-COPY --link package.json package-lock.json ./
 RUN npm install
+RUN npm run build
+EXPOSE 3000
 
-# Run
-FROM base
+ENV NUXT_HOST=0.0.0.0
 
-COPY --from=build /src/app/node_modules /src/app/node_modules
+ENV NUXT_PORT=3000
 
 CMD [ "npm", "run", "dev" ]
