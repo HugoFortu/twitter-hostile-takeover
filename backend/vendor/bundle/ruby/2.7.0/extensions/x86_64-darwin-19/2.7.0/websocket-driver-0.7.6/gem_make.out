@@ -1,0 +1,16 @@
+current directory: /Users/hugofortunier/code/HugoFortu/twitter-hostile-takeover/backend/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+/Users/hugofortunier/.rbenv/versions/2.7.0/bin/ruby -I /Users/hugofortunier/.rbenv/versions/2.7.0/lib/ruby/site_ruby/2.7.0 extconf.rb
+creating Makefile
+
+current directory: /Users/hugofortunier/code/HugoFortu/twitter-hostile-takeover/backend/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20240221-4681-d7ngtd sitelibdir\=./.gem.20240221-4681-d7ngtd clean
+
+current directory: /Users/hugofortunier/code/HugoFortu/twitter-hostile-takeover/backend/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20240221-4681-d7ngtd sitelibdir\=./.gem.20240221-4681-d7ngtd
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/hugofortunier/code/HugoFortu/twitter-hostile-takeover/backend/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20240221-4681-d7ngtd sitelibdir\=./.gem.20240221-4681-d7ngtd install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20240221-4681-d7ngtd

@@ -1,0 +1,26 @@
+current directory: /Users/hugofortunier/code/HugoFortu/twitter-hostile-takeover/backend/vendor/bundle/ruby/2.7.0/gems/io-console-0.7.2/ext/io/console
+/Users/hugofortunier/.rbenv/versions/2.7.0/bin/ruby -I /Users/hugofortunier/.rbenv/versions/2.7.0/lib/ruby/site_ruby/2.7.0 extconf.rb
+checking for rb_io_path()... no
+checking for rb_io_descriptor()... no
+checking for rb_io_get_write_io()... yes
+checking for rb_io_closed_p()... no
+checking for rb_io_open_descriptor()... no
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... no
+checking for rb_scheduler_timeout()... no
+creating Makefile
+
+current directory: /Users/hugofortunier/code/HugoFortu/twitter-hostile-takeover/backend/vendor/bundle/ruby/2.7.0/gems/io-console-0.7.2/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20240221-4681-17ir981 sitelibdir\=./.gem.20240221-4681-17ir981 clean
+
+current directory: /Users/hugofortunier/code/HugoFortu/twitter-hostile-takeover/backend/vendor/bundle/ruby/2.7.0/gems/io-console-0.7.2/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20240221-4681-17ir981 sitelibdir\=./.gem.20240221-4681-17ir981
+compiling console.c
+linking shared-object io/console.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/hugofortunier/code/HugoFortu/twitter-hostile-takeover/backend/vendor/bundle/ruby/2.7.0/gems/io-console-0.7.2/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20240221-4681-17ir981 sitelibdir\=./.gem.20240221-4681-17ir981 install
+/usr/bin/install -c -m 0755 console.bundle ./.gem.20240221-4681-17ir981/io

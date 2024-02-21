@@ -1,0 +1,40 @@
+version: '3'
+
+networks:
+  postgres:
+
+services:
+  postgres:
+    image: postgres
+    env_file: ./.env
+    ports:
+      - "5432"
+    networks:
+      - postgres
+
+  backend:
+    build:
+      context: backend
+      args:
+        UID: ${UID:-1001}
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+
+  frontend:
+    build:
+      context: frontend
+    ports:
+      - "3000:3000"
+      # - "24678:24678"
+    volumes:
+      - ./frontend:/src/app
+      - node_modules:/src/app/node_modules
+
+volumes:
+  node_modules:
