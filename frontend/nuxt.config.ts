@@ -11,7 +11,7 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
-    //...
+    "@pinia/nuxt"
   ],
   vite: {
     vue: {
@@ -20,4 +20,5 @@ export default defineNuxtConfig({
       },
     },
   },
+  css: ["~/assets/css/styles.scss"],
 })
