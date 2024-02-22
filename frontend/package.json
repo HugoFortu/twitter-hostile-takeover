@@ -16,6 +16,8 @@
     "nuxt": "^3.10.2",
     "sass": "^1.71.1",
     "vue": "^3.4.19",
+    "@vueuse/core": "9.11.0",
+    "@vueuse/math": "9.11.0",
     "vue-router": "^4.2.5",
     "vue3-emoji-picker": "^1.1.8"
   },

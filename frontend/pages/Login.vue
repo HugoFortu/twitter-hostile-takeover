@@ -98,25 +98,30 @@ const email = ref("");
 const password = ref("");
 const passwordConfirmation = ref("");
 const toto = () => {
-  // $fetch(`http://0.0.0.0:8080/users`, {
-  //   method: "POST",
-  //   credentials: "include",
-  //   body: {
-  //     user: {
-  //       email: email.value,
-  //       password: password.value,
-  //       password_confirmation: passwordConfirmation.value
-  //     }
-  //   },
-  // })
-  $fetch(`http://0.0.0.0:8080/member-data`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-    }
+  $fetch.raw(`http://0.0.0.0:8080/users`, {
+    method: "POST",
+    credentials: "include",
+    body: {
+      user: {
+        email: email.value,
+        password: password.value,
+        password_confirmation: passwordConfirmation.value
+      }
+    },
   }).then((response) => {
-    console.log(response)
+    if (response.ok) {
+      sessionStorage.setItem("isLogged", response.ok);
+      sessionStorage.setItem("token", response.headers.get("authorization").split(' ')[1]);
+    }
   })
+  // $fetch(`http://0.0.0.0:8080/member-data`, {
+  //   method: "GET",
+  //   headers: {
+  //     Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+  //   }
+  // }).then((response) => {
+  //   console.log(response)
+  // })
 }
 
 const login = () => {
