@@ -1,21 +1,22 @@
+import { useAuthStore } from "~/store/auth";
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
+    const authStore = useAuthStore();
+    const config = useRuntimeConfig();
+    const token = sessionStorage.getItem("token") || false;
 
-    const token = sessionStorage.getItem("token");
-
-    $fetch(`http://0.0.0.0:8080/member-data`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
-    }).then((response) => {
-      console.log(response)
-    })
-    // if (to.params.id === '1') {
-    //     return abortNavigation()
-    // }
-    //
-    // if (to.path !== '/') {
-    //     return navigateTo('/')
-    // }
+    if (to.path === "/login") {
+        return;
+    }
+    try {
+        const response = await $fetch(`${config.public.baseApiUrl}/member-data`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+        authStore.setUser(response.user)
+    } catch(_) {
+        return navigateTo('/login')
+    }
 })

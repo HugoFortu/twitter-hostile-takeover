@@ -43,7 +43,7 @@
             ></v-text-field>
           </v-col>
           <v-btn
-          @click="toto">
+          @click="registration">
             Valider
           </v-btn>
         </v-card>
@@ -93,12 +93,13 @@
 <script setup>
 import { ref } from "vue";
 
+const config = useRuntimeConfig();
 const valid = ref(null);
 const email = ref("");
 const password = ref("");
 const passwordConfirmation = ref("");
-const toto = () => {
-  $fetch.raw(`http://0.0.0.0:8080/users`, {
+const registration = () => {
+  $fetch.raw(`${config.public.baseApiUrl}/users`, {
     method: "POST",
     credentials: "include",
     body: {
@@ -114,18 +115,10 @@ const toto = () => {
       sessionStorage.setItem("token", response.headers.get("authorization").split(' ')[1]);
     }
   })
-  // $fetch(`http://0.0.0.0:8080/member-data`, {
-  //   method: "GET",
-  //   headers: {
-  //     Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-  //   }
-  // }).then((response) => {
-  //   console.log(response)
-  // })
 }
 
 const login = () => {
-  $fetch.raw(`http://0.0.0.0:8080/users/sign_in`, {
+  $fetch.raw(`${config.public.baseApiUrl}/users/sign_in`, {
     method: "POST",
     credentials: "include",
     body: {
@@ -137,15 +130,12 @@ const login = () => {
   })
       .then((response) => {
         sessionStorage.setItem("isLogged", response.ok);
-        console.log(response.headers.get("authorization").split(' ')[1])
         if (response.ok) {
           sessionStorage.setItem("token", response.headers.get("authorization").split(' ')[1]);
+          return navigateTo('/');
         }
       })
 }
-
-
-
 
 
 </script>
