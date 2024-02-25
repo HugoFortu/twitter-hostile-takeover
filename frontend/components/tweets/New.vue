@@ -18,29 +18,28 @@
         cols="10"
         md="10"
       >
-      <v-file-input
-        clearable
-        density="compact"
-        v-model="image"
-        label="Image ajoutée"
-      ></v-file-input>
-    </v-col>
-      <v-col
-        cols="2"
-        md="2"
-        class="text-right"
-      >
-      <v-btn
-        @click="displayEmojis"
-        density="compact"
-
-      >
-        Ajouter un emoji
-      </v-btn>
-      <v-dialog v-model="selectEmoji">
-        <EmojiPicker :native="true" @select="onSelectEmoji" />
-      </v-dialog>
-    </v-col>
+        <v-file-input
+          clearable
+          density="compact"
+          v-model="image"
+          label="Image ajoutée"
+        ></v-file-input>
+      </v-col>
+        <v-col
+          cols="2"
+          md="2"
+          class="text-right"
+        >
+        <v-btn
+          @click="displayEmojis"
+          density="compact"
+        >
+        😆
+        </v-btn>
+        <v-dialog v-model="selectEmoji">
+          <EmojiPicker :native="true" @select="onSelectEmoji" />
+        </v-dialog>
+      </v-col>
     </v-row>
     <v-row>
       <v-col
@@ -50,6 +49,7 @@
         >
         <v-btn
           @click="sendTweet"
+          :disabled="image === null && emojisText === ''"
           density="compact"
         >
           Poster

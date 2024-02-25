@@ -7,6 +7,17 @@
             Inscription
           </v-card-title>
           <v-col
+              cols="12"
+              md="12"
+            >
+            <v-text-field
+              v-model="pseudo"
+              label="Pseudo"
+              hide-details
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col
             cols="12"
             md="12"
           >
@@ -24,7 +35,6 @@
           >
             <v-text-field
               v-model="subPassword"
-              :counter="10"
               label="Mot de passe"
               hide-details
               required
@@ -36,7 +46,6 @@
           >
             <v-text-field
                 v-model="subPasswordConfirmation"
-                :counter="10"
                 label="Confirmer le mot de passe."
                 hide-details
                 required
@@ -123,6 +132,7 @@ import { ref } from "vue";
 const config = useRuntimeConfig();
 const newAccount = ref(false);
 const email = ref("");
+const pseudo = ref("");
 const password = ref("");
 const subEmail = ref("");
 const subPassword = ref("");
@@ -134,6 +144,7 @@ const registration = () => {
     body: {
       user: {
         email: subEmail.value,
+        pseudo: pseudo.value,
         password: subPassword.value,
         password_confirmation: subPasswordConfirmation.value
       }

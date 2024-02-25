@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[ update destroy ]
+  before_action :set_tweet, only: %i[update destroy]
 
   def index
     # Tweet.joins(:comments).where('tweets.id = 12')
@@ -9,7 +9,8 @@ class TweetsController < ApplicationController
       if tweet.image.attached?
         image_url = rails_blob_url(tweet.image)
       end
-      tweet.attributes.merge({ image_url: image_url })
+      tweet = tweet.to_complete_hash
+      tweet.merge({ image_url: image_url })
     end
     render json: tweet_hash
   end
@@ -26,6 +27,10 @@ class TweetsController < ApplicationController
   end
 
   def update
+    if tweets_params[:image]
+      @tweet.image.purge
+      @tweet.image.attach(tweets_params[:image])
+    end
     if @tweet.update(tweets_params)
       render json: @tweet
     else
@@ -44,6 +49,6 @@ class TweetsController < ApplicationController
   end
 
   def tweets_params
-    params.require(:tweet).permit(:content, :user_id, :grade, :image)
+    params.require(:tweet).permit(:content, :user_id, :image)
   end
 end

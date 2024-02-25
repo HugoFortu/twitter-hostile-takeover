@@ -17,6 +17,7 @@
         >
         <tweetList
           :tweets="tweets"
+          @index="index"
         />
         </v-col>
       </v-row>
