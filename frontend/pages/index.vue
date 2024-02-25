@@ -1,22 +1,40 @@
 <template>
-  <EmojiPicker :native="true" @select="onSelectEmoji" />
-  <v-file-input
-      v-model="image"
-      label="File input"
-  ></v-file-input>
-  {{ tweets }}
+  <v-container>
+    <v-row>
+      <v-col
+        cols="12"
+        md="12"
+      >
+      <NewTweet
+      @refresh="index"
+      />
+      </v-col>
+    </v-row>
+    <v-row>
+        <v-col
+          cols="12"
+          md="12"
+        >
+        <tweetList
+          :tweets="tweets"
+        />
+        </v-col>
+      </v-row>
+  </v-container>
+
+
+
 </template>
 
 <script setup>
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "~/store/auth";
-import EmojiPicker from 'vue3-emoji-picker'
-import 'vue3-emoji-picker/css'
+import NewTweet from "~/components/tweets/New.vue";
+import tweetList from "~/components/tweets/List.vue";
 
 const config = useRuntimeConfig();
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);
-const image = ref(null)
 const tweets = ref([])
 
 const index = () => {
@@ -27,23 +45,7 @@ const index = () => {
   })
 }
 
-const onSelectEmoji = (emoji) => {
-  console.log(image.value);
-  const formData = new FormData();
-  formData.append( 'tweet[image]', image.value[0] );
-  formData.append( 'tweet[user_id]', user.value.id);
-  formData.append( 'tweet[content]', emoji.i);
-  $fetch(`${config.public.baseApiUrl}/tweets`, {
-    method: "POST",
-    credentials: "include",
-    body: formData
-  }).then((response) => {
-
-  })
-}
-
 onMounted(() => {
   index();
 });
-
 </script>
