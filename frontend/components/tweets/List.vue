@@ -1,6 +1,6 @@
 <template>
   <div v-for="(tweet, index) in props.tweets" :key="index">
-      <div class="border-custom mb-2">
+      <div class="border-custom mb-8">
         <v-card class="px-5 py-5 rounded">
           <v-row>
             <v-col>
