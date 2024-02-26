@@ -49,7 +49,6 @@
           >
           <v-btn
             @click="displayEmojis"
-            density="compact"
           >
           😆
           </v-btn>

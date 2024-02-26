@@ -16,9 +16,13 @@ p "Create users"
 elon = User.create(pseudo: "elon", email: "Elon@twxtter.com")
 bruce = User.create(pseudo: "batman", email: "bruce@batman.com")
 luffy = User.create(pseudo: "luffy", email: "luffy@mugiwara.com")
+
 p "Users created"
+
 users = [elon, bruce, luffy]
+
 p "Create tweets"
+
 first_tweet = Tweet.create(user_id: elon.id, content: "🚀👀🎊")
 first_tweet.image.attach(io: File.open(Rails.root.join('db/images/elon.png')), filename: "elon.png")
 counter = 1
