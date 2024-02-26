@@ -1,14 +1,12 @@
 <template>
   <div>
     <v-form v-if="newAccount">
-      <v-container>
-        <v-card class="login">
+        <v-card>
           <v-card-title>
             Inscription
           </v-card-title>
           <v-col
-              cols="12"
-              md="12"
+
             >
             <v-text-field
               v-model="pseudo"
@@ -18,8 +16,7 @@
             ></v-text-field>
           </v-col>
           <v-col
-            cols="12"
-            md="12"
+
           >
             <v-text-field
               v-model="subEmail"
@@ -30,8 +27,7 @@
           </v-col>
 
           <v-col
-            cols="12"
-            md="12"
+
           >
             <v-text-field
               v-model="subPassword"
@@ -40,10 +36,7 @@
               required
             ></v-text-field>
           </v-col>
-          <v-col
-              cols="12"
-              md="12"
-          >
+          <v-col>
             <v-text-field
                 v-model="subPasswordConfirmation"
                 label="Confirmer le mot de passe."
@@ -51,11 +44,7 @@
                 required
             ></v-text-field>
           </v-col>
-          <v-col
-            cols="12"
-            md="12"
-            class="text-right"
-          >
+          <v-col class="text-right">
               <v-btn
                 @click="newAccount = false"
                 class="mr-5"
@@ -69,11 +58,9 @@
             </v-btn>
           </v-col>
         </v-card>
-      </v-container>
     </v-form>
     <v-form v-else>
-      <v-container >
-        <v-card class="login">
+        <v-card>
           <v-card-title>
             Connexion
           </v-card-title>
@@ -120,7 +107,6 @@
             </v-btn>
           </v-col>
         </v-card>
-      </v-container>
     </v-form>
   </div>
 </template>
@@ -151,7 +137,7 @@ const registration = () => {
     },
   }).then((response) => {
     if (response.ok) {
-      sessionStorage.setItem("isLogged", response.ok);
+      sessionStorage.setItem("isLogged", "true");
       sessionStorage.setItem("token", response.headers.get("authorization").split(' ')[1]);
       return navigateTo('/');
     }
@@ -170,13 +156,11 @@ const login = () => {
     },
   })
       .then((response) => {
-        sessionStorage.setItem("isLogged", response.ok);
         if (response.ok) {
           sessionStorage.setItem("token", response.headers.get("authorization").split(' ')[1]);
+          sessionStorage.setItem("isLogged", "true");
           return navigateTo('/');
         }
       })
 }
-
-
 </script>

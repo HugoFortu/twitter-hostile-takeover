@@ -2,8 +2,7 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[update destroy]
 
   def index
-    # Tweet.joins(:comments).where('tweets.id = 12')
-    tweets = Tweet.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+    tweets = Tweet.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     tweet_hash = tweets.map do |tweet|
       image_url = nil
       if tweet.image.attached?

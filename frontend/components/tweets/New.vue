@@ -1,62 +1,79 @@
 <template>
-  <v-card class="mt-5 px-5 py-5 rounded">
-    <v-card-title>
-      Ajouter un tweet
-    </v-card-title>
-    <v-row>
-      <v-text-field
-        class="pl-5 field-disabled"
-        clearable
-        clear-icon="mdi-close-circle"
-        label="Emojis"
-        v-model="emojisText"
-        disabled
-      ></v-text-field>
-    </v-row>
-    <v-row>
-      <v-col
-        cols="10"
-        md="10"
-      >
-        <v-file-input
-          clearable
-          density="compact"
-          v-model="image"
-          label="Image ajoutée"
-        ></v-file-input>
-      </v-col>
+  <div class="border-custom mt-5">
+    <v-card class="px-5 py-5 rounded">
+      <v-card-title class="mb-2">
+        Créer un tweet
+      </v-card-title>
+      <v-row>
         <v-col
-          cols="2"
-          md="2"
-          class="text-right"
+            cols="11"
+            md="11"
         >
-        <v-btn
-          @click="displayEmojis"
-          density="compact"
+          <v-text-field
+            class="pl-5 field-disabled"
+            clearable
+            clear-icon="mdi-close-circle"
+            label="Emojis"
+            v-model="emojisText"
+            disabled
+          ></v-text-field>
+        </v-col>
+        <v-col
+            cols="1"
+            md="1">
+          <v-btn
+              icon="mdi-close"
+              density="compact"
+              @click="clearEmojis"
+              v-if="emojisText !== ''"
+          ></v-btn>
+        </v-col>
+
+      </v-row>
+      <v-row>
+        <v-col
+          cols="10"
+          md="10"
         >
-        😆
-        </v-btn>
-        <v-dialog v-model="selectEmoji">
-          <EmojiPicker :native="true" @select="onSelectEmoji" />
-        </v-dialog>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col
-          cols="12"
-          md="12"
-          class="text-right"
-        >
-        <v-btn
-          @click="sendTweet"
-          :disabled="image === null && emojisText === ''"
-          density="compact"
-        >
-          Poster
-        </v-btn>
-      </v-col>
-    </v-row>
-  </v-card>
+          <v-file-input
+            clearable
+            density="compact"
+            v-model="image"
+            label="Ajouter une image"
+          ></v-file-input>
+        </v-col>
+          <v-col
+            cols="2"
+            md="2"
+            class="text-right"
+          >
+          <v-btn
+            @click="displayEmojis"
+            density="compact"
+          >
+          😆
+          </v-btn>
+          <v-dialog v-model="selectEmoji">
+            <EmojiPicker :native="true" @select="onSelectEmoji" />
+          </v-dialog>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col
+            cols="12"
+            md="12"
+            class="text-right"
+          >
+          <v-btn
+            @click="sendTweet"
+            :disabled="image === null && emojisText === ''"
+          >
+            Poster
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-card>
+  </div>
 </template>
 
 <script setup>
@@ -77,6 +94,11 @@ const onSelectEmoji = (emoji) => {
   emojisText.value = emojisText.value + emoji.i;
   selectEmoji.value = false;
 }
+
+const clearEmojis = () => {
+  emojisText.value = "";
+}
+
 
 const sendTweet = () => {
   const formData = new FormData();

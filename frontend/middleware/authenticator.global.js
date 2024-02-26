@@ -16,7 +16,9 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
             }
         })
         authStore.setUser(response.user)
+        sessionStorage.setItem("isLogged", "true");
     } catch(_) {
+        sessionStorage.setItem("isLogged", "false");
         return navigateTo('/login')
     }
 })

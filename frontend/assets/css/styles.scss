@@ -1,5 +1,35 @@
-.login {
-  margin-top: 20vh;
-  padding: 32px;
+
+.border-custom {
+  background-size: contain;
+  padding: 4px;
+  border-radius: 4px;
+  background-image: linear-gradient(140deg,#ce0d00,#ce0d00 31%,#f7c643 34%,#f7c643 64%,#4bcbc9 67%,#4bcbc9);
 }
 
+.v-theme--light header {
+  position: fixed;
+  width: 100%;
+  height: 3.88rem;
+  background-color: #fff;
+  padding: 0 1.25rem;
+  box-shadow: 0 .25rem .56rem #00000026;
+  z-index: 11;
+}
+
+.app-title {
+  color: #363636;
+  font-size: 2rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.body {
+  background-image: url("~/assets/images/background.svg") !important;
+}
+
+.left-menu {
+  position: fixed !important;
+  width: 100%;
+  top: 2;
+  z-index: 1;
+}
