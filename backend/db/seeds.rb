@@ -12,11 +12,26 @@ if Rails.env.Production?
 end
 
 emojis_array = ["✌","😂","😝","😁","😱","👉","🙌","🍻","🔥","🌈","☀","🎈","🌹","💄","🎀","⚽","🎾","🏁","😡","👿","🐻","🐶","🐬","🐟","🍀","👀","🚗","🍎","💝","💙","👌","❤","😍","😉","😓","😳","💪","💩","🍸","🔑","💖","🌟","🎉","🌺","🎶","👠","🏈","⚾","🏆","👽","💀","🐵","🐮","🐩","🐎","💣","👃","👂","🍓","💘","💜","👊","💋","😘","😜","😵","🙏","👋","🚽","💃","💎","🚀","🌙","🎁","⛄","🌊","⛵","🏀","🎱","💰","👶","👸","🐰","🐷","🐍","🐫","🔫","👄","🚲","🍉","💛","💚"]
-
+p "Create users"
 elon = User.create(pseudo: "elon", email: "Elon@twxtter.com")
 bruce = User.create(pseudo: "batman", email: "bruce@batman.com")
 luffy = User.create(pseudo: "luffy", email: "luffy@mugiwara.com")
-
+p "Users created"
+users = [elon, bruce, luffy]
+p "Create tweets"
 first_tweet = Tweet.create(user_id: elon.id, content: "🚀👀🎊")
 first_tweet.image.attach(io: File.open(Rails.root.join('db/images/elon.png')), filename: "elon.png")
+counter = 1
+14.times do
+  content = ""
+  (1..8).to_a.sample.times do
+    content = content + emojis_array.sample
+  end
 
+  tweet = Tweet.create(user_id: users.sample.id, content: content)
+  tweet.image.attach(io: File.open(Rails.root.join("db/images/random#{counter}.jpeg")), filename: "random#{counter}.jpeg")
+
+  counter += 1
+end
+
+p "Tweets created"

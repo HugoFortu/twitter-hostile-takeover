@@ -1,7 +1,6 @@
 <template>
-  <v-row  v-for="(tweet, index) in props.tweets" :key="index">
-    <v-col>
-      <div class="border-custom mb-2 ">
+  <div v-for="(tweet, index) in props.tweets" :key="index">
+      <div class="border-custom mb-2">
         <v-card class="px-5 py-5 rounded">
           <v-row>
             <v-col>
@@ -62,33 +61,13 @@
                 Supprimer
               </v-btn>
             </v-col>
-<!--            <v-col-->
-<!--                cols="1"-->
-<!--                md="1"-->
-<!--            >-->
-<!--              <v-btn-->
-<!--                  :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"-->
-<!--                  @click="show = !show"-->
-<!--              ></v-btn>-->
-
-<!--            </v-col>-->
           </v-row>
-<!--          <v-expand-transition>-->
-<!--            <div v-show="show">-->
-<!--              <v-divider></v-divider>-->
-
-<!--              <v-card-text>-->
-<!--                I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.-->
-<!--              </v-card-text>-->
-<!--            </div>-->
-<!--          </v-expand-transition>-->
         </v-card>
       </div>
-    </v-col>
     <v-dialog v-model="editModal">
       <EditTweet :tweet="selectedTweet" @closeModal="closeModal" />
     </v-dialog>
-  </v-row>
+  </div>
 </template>
 <script setup>
 import { useAuthStore } from "~/store/auth";
@@ -118,7 +97,6 @@ const deleteTweet = (id) => {
 };
 
 const editTweet = (tweet) => {
-  console.log(tweet);
   selectedTweet.value = tweet;
   editModal.value = true;
 };

@@ -1,11 +1,7 @@
 <template>
   <NuxtLayout>
     <v-app class="body">
-      <v-row>
-        <v-col>
-          <Navbar />
-        </v-col>
-      </v-row>
+      <Navbar />
       <v-row class="mt-8">
         <v-col
           class="hidden-sm-and-down"

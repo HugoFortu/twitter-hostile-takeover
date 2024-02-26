@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <v-form v-if="newAccount">
+    <v-form v-if="newAccount" class="login">
         <v-card>
           <v-card-title>
             Inscription
@@ -25,9 +24,7 @@
               required
             ></v-text-field>
           </v-col>
-
           <v-col
-
           >
             <v-text-field
               v-model="subPassword"
@@ -59,7 +56,7 @@
           </v-col>
         </v-card>
     </v-form>
-    <v-form v-else>
+    <v-form v-else class="login">
         <v-card>
           <v-card-title>
             Connexion
@@ -108,7 +105,6 @@
           </v-col>
         </v-card>
     </v-form>
-  </div>
 </template>
 
 

@@ -1,26 +1,22 @@
 <template>
-      <v-navigation-drawer  v-model="sidebar" app >
-
-      </v-navigation-drawer>
-
-      <v-toolbar app >
-        <v-toolbar-title>
-          <router-link to="/" tag="span" class="app-title" style="cursor: pointer">
-            {{ appTitle }}
-          </router-link>
-        </v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-toolbar-items class="bg-white">
-          <v-btn
-            v-if="route.path !== '/login'"
-            flat
-            to="/login"
-            @click="logout"
-          >
-            {{ btnText }}
-          </v-btn>
-        </v-toolbar-items>
-      </v-toolbar>
+  <v-toolbar>
+    <v-toolbar-title>
+      <router-link to="/" tag="span" class="app-title" style="cursor: pointer">
+        {{ appTitle }}
+      </router-link>
+    </v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items class="bg-white">
+      <v-btn
+        v-if="route.path !== '/login'"
+        flat
+        to="/login"
+        @click="logout"
+      >
+        {{ btnText }}
+      </v-btn>
+    </v-toolbar-items>
+  </v-toolbar>
 </template>
 
 <script setup>
