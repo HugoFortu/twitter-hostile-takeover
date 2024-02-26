@@ -12,9 +12,10 @@
         <v-spacer></v-spacer>
         <v-toolbar-items class="bg-white">
           <v-btn
+            v-if="route.path !== '/login'"
             flat
             to="/login"
-            @click="connected"
+            @click="logout"
           >
             {{ btnText }}
           </v-btn>
@@ -24,24 +25,18 @@
 
 <script setup>
 import { useAuthStore } from "~/store/auth";
-
+const route = useRoute()
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);
 const config = useRuntimeConfig();
 const appTitle = ref('TwXtter');
 const sidebar = false;
 
-const btnText = ref("Connexion");
+const btnText = ref("Deconnexion");
 
-const connected = () => {
-  if(btnText.value === 'Deconnexion') {
-        sessionStorage.setItem("isLogged", "false");
-        sessionStorage.setItem("token", null);
-      }
-  btnText.value = sessionStorage.getItem("isLogged") === "true" ? 'Deconnexion' : 'Connexion'
+const logout = () => {
+  sessionStorage.setItem("isLogged", "false");
+  sessionStorage.setItem("token", null);
 }
 
-onMounted(() => {
-  connected();
-});
 </script>

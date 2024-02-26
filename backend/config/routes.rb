@@ -5,7 +5,11 @@ Rails.application.routes.draw do
               registrations: 'users/registrations'
             } 
   get '/member-data', to: 'members#show'
-  resources :tweets, only: [:index, :create, :destroy, :update]
+  resources :tweets, only: [:index, :create, :destroy, :update] do
+    collection do
+      get 'my_tweets', to: 'tweets#user_tweets'
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

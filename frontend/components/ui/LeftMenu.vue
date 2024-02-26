@@ -21,16 +21,15 @@
           class="text-center"
       >
         <v-btn
-            prepend-icon="mdi-home"
-            to="/login"
+            prepend-icon="mdi-head"
+            to="/tweets"
             flat
             min-width="10vw"
-
         >
           <template v-slot:prepend>
             <v-icon color="indigo-lighten-1"></v-icon>
           </template>
-
+          Mes Tweets
         </v-btn>
       </v-col>
       <v-col

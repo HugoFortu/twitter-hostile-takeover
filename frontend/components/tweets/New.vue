@@ -1,5 +1,5 @@
 <template>
-  <div class="border-custom mt-5">
+  <div class="border-custom mt-8">
     <v-card class="px-5 py-5 rounded">
       <v-card-title class="mb-2">
         Créer un tweet

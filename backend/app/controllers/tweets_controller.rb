@@ -14,6 +14,19 @@ class TweetsController < ApplicationController
     render json: tweet_hash
   end
 
+  def user_tweets
+    tweets = Tweet.where(user_id: params[:user_id]).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    tweet_hash = tweets.map do |tweet|
+      image_url = nil
+      if tweet.image.attached?
+        image_url = rails_blob_url(tweet.image)
+      end
+      tweet = tweet.to_complete_hash
+      tweet.merge({ image_url: image_url })
+    end
+    render json: tweet_hash
+  end
+
   def create
     @tweet = Tweet.new(tweets_params)
     @tweet.image.attach(tweets_params[:image])
