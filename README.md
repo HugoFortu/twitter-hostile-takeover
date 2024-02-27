@@ -1,5 +1,5 @@
 # Twitter hostile takeover - Development guidelines
-You need to have docker and docker-compose installed, please check that you have at least the following version installed:
+You need to have docker and docker-compose installed, please check that you have at least one version installed:
 
 ```bash
 docker -v
@@ -8,7 +8,7 @@ docker -v
 ```bash
 docker-compose -v
 ```
-If you haven't the good version of docker or docker-compose please follow the step : [Install Docker and docker-compose](#install-docker-and-docker-compose)
+If you haven't docker or docker-compose please follow the step : [Install Docker and docker-compose](#install-docker-and-docker-compose)
 
 ## **Initial setup**
 You need to fork this repository, and after, run the following commands on a local folder of your choice:
