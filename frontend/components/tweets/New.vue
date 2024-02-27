@@ -1,7 +1,7 @@
 <template>
   <div class="border-custom mt-8">
     <v-card class="px-5 py-5 rounded">
-      <v-card-title class="mb-2">
+      <v-card-title class="mb-2 text-h5">
         Créer un tweet
       </v-card-title>
       <v-row>
@@ -28,7 +28,6 @@
               v-if="emojisText !== ''"
           ></v-btn>
         </v-col>
-
       </v-row>
       <v-row>
         <v-col

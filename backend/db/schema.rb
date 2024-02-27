@@ -72,7 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_25_102836) do
 
   create_table "tweets", force: :cascade do |t|
     t.text "content"
-    t.integer "grade"
+    t.integer "grade", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

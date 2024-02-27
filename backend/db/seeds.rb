@@ -35,7 +35,13 @@ counter = 1
   tweet = Tweet.create(user_id: users.sample.id, content: content)
   tweet.image.attach(io: File.open(Rails.root.join("db/images/random#{counter}.jpeg")), filename: "random#{counter}.jpeg")
 
+  users.each do |user|
+    Like.create(tweet_id: tweet.id, value: [1, -1].sample, user_id: user.id)
+  end
+  tweet.grade = Like.where(tweet_id: tweet.id).sum { |like| like.value }
+  tweet.save
   counter += 1
 end
+
 
 p "Tweets created"
