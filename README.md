@@ -1,5 +1,5 @@
 # Twitter hostile takeover - Development guidelines
-You need to have docker and docker-compose installed, please check that you have at least one version installed:
+You need to have docker and docker-compose installed, please check that you have one version installed:
 
 ```bash
 docker -v
@@ -13,6 +13,7 @@ If you haven't docker or docker-compose please follow the step : [Install Docker
 ## **Initial setup**
 You need to fork this repository, and after, run the following commands on a local folder of your choice:
 
+Obviously, the following command is for my repo, but you need to clone yours after fork it.
 ```bash
 git clone git@github.com:HugoFortu/twitter-hostile-takeover.git
 ```
@@ -22,7 +23,7 @@ cd twitter-hostile-takeover
 
 ## Environment variables
 
-create a new file .env at the root of the project, and add theses environment variables:
+Create a new file .env at the root of the project, and add theses environment variables:
 
 
 | Name                           | Value                            | Description               |
