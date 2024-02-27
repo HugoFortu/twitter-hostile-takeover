@@ -49,6 +49,7 @@
           >
           <v-btn
             @click="displayEmojis"
+            class="text-h5"
           >
           😆
           </v-btn>

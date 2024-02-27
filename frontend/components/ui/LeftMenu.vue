@@ -10,9 +10,10 @@
             flat
             min-width="10vw"
             class="mt-8"
+            size="large"
         >
           <template v-slot:prepend>
-            <v-icon color="indigo-lighten-1"></v-icon>
+            <v-icon size="x-large" color="indigo-lighten-1"></v-icon>
           </template>
           Home
         </v-btn>
@@ -21,13 +22,14 @@
           class="text-center"
       >
         <v-btn
-            prepend-icon="mdi-head"
+            prepend-icon="mdi-account"
             to="/tweets"
             flat
             min-width="10vw"
+            size="large"
         >
           <template v-slot:prepend>
-            <v-icon color="indigo-lighten-1"></v-icon>
+            <v-icon size="x-large" color="indigo-lighten-1"></v-icon>
           </template>
           Mes Tweets
         </v-btn>
@@ -41,9 +43,10 @@
             flat
             min-width="10vw"
             class="mb-8"
+            size="large"
         >
           <template v-slot:prepend>
-            <v-icon color="indigo-lighten-1"></v-icon>
+            <v-icon size="x-large" color="indigo-lighten-1"></v-icon>
           </template>
           Home
         </v-btn>
