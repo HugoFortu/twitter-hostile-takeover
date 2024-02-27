@@ -8,7 +8,9 @@ docker -v
 ```bash
 docker-compose -v
 ```
-If you haven't docker or docker-compose please follow the step : [Install Docker and docker-compose](#install-docker-and-docker-compose)
+If you haven't docker or docker-compose, you can install Docker Desktop if it possible:
+https://docs.docker.com/desktop/install/mac-install
+
 
 ## **Initial setup**
 You need to fork this repository, and after, run the following commands on a local folder of your choice:
