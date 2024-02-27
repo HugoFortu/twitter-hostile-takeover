@@ -147,7 +147,4 @@ const likeDisabled = (tweet, value) => {
     return like.value === value || tweet.user_id === user.value.id
   }
 }
-
-
-
 </script>

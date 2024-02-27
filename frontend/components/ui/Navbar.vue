@@ -28,11 +28,11 @@
           <v-list-item to="/tweets">
             <v-list-item-title>Mes tweets</v-list-item-title>
           </v-list-item>
-<!--          <v-list-item-->
-<!--              to="/"-->
-<!--          >-->
-<!--            <v-list-item-title>Home</v-list-item-title>-->
-<!--          </v-list-item>-->
+          <v-list-item
+              to="/leaderboard"
+          >
+            <v-list-item-title>Classement</v-list-item-title>
+          </v-list-item>
           <v-list-item
               to="/login"
               @click="logout"

@@ -38,8 +38,8 @@
           class="text-center"
       >
         <v-btn
-            prepend-icon="mdi-home"
-            to="/login"
+            prepend-icon="mdi-podium-gold"
+            to="/leaderboard"
             flat
             min-width="10vw"
             class="mb-8"
@@ -48,7 +48,7 @@
           <template v-slot:prepend>
             <v-icon size="x-large" color="#363636"></v-icon>
           </template>
-          Home
+          Classement
         </v-btn>
       </v-col>
     </v-card>
