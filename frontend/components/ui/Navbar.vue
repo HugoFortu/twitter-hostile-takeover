@@ -22,14 +22,10 @@
           </v-btn>
         </template>
         <v-list>
-          <v-list-item
-              to="/"
-          >
-            <v-list-item-title>Home</v-list-item-title>
+          <v-list-item to="/">
+            <v-list-item-title>Accueil</v-list-item-title>
           </v-list-item>
-          <v-list-item
-              to="/tweets"
-          >
+          <v-list-item to="/tweets">
             <v-list-item-title>Mes tweets</v-list-item-title>
           </v-list-item>
 <!--          <v-list-item-->
@@ -65,8 +61,6 @@ const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);
 const config = useRuntimeConfig();
 const appTitle = ref('TwXtter');
-const sidebar = false;
-
 const btnText = ref("Deconnexion");
 
 const logout = () => {

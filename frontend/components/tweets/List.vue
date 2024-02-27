@@ -10,7 +10,10 @@
           <v-row>
             <v-col>
               <v-card-title >{{ tweet.content }}</v-card-title>
-              <v-card-subtitle >@{{ tweet.pseudo }}</v-card-subtitle>
+              <v-row class="mt-1">
+                <v-card-subtitle >@{{ tweet.pseudo }}</v-card-subtitle>
+                <v-card-subtitle >{{ tweet.grade }} likes</v-card-subtitle>
+              </v-row>
             </v-col>
           </v-row>
           <v-row>
@@ -20,8 +23,9 @@
             >
               <v-btn
                   prepend-icon="mdi-thumb-up"
-                  :disabled="tweet.user_id === user.id"
+                  :disabled="likeDisabled(tweet, 1)"
                   class="mr-2"
+                  @click="rateTweet(tweet, 1)"
               >
                 <template v-slot:prepend>
                   <v-icon color="indigo-lighten-1"></v-icon>
@@ -31,8 +35,9 @@
               </v-btn>
               <v-btn
                   prepend-icon="mdi-thumb-down-outline"
-                  :disabled="tweet.user_id === user.id"
+                  :disabled="likeDisabled(tweet, -1)"
                   class="mr-2"
+                  @click="rateTweet(tweet, -1)"
               >
                 <template v-slot:prepend>
                   <v-icon color="red-lighten-1"></v-icon>
@@ -105,5 +110,44 @@ const closeModal = () => {
   editModal.value = false;
   emit("index")
 }
+
+const rateTweet = (tweet, value) => {
+  const alreadyRated = tweet.likes.find((element) => element.user_id === user.value.id)
+  if(alreadyRated === undefined) {
+    $fetch(`${config.public.baseApiUrl}/likes`, {
+      method: "POST",
+      credentials: "include",
+      body: {
+        tweet_id: tweet.id,
+        user_id: user.value.id,
+        value: value
+      }
+    }).then(() => {
+      emit("index")
+    }).catch((error) => {
+      console.log(error);
+    })
+  } else {
+    $fetch(`${config.public.baseApiUrl}/likes/${alreadyRated.id}`, {
+      method: "DELETE",
+      credentials: "include",
+    }).then(() => {
+      emit("index")
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
+};
+
+const likeDisabled = (tweet, value) => {
+  const like = tweet.likes.find((element) => element.user_id === user.value.id)
+  if(like === undefined) {
+    return tweet.user_id === user.value.id
+  } else {
+    return like.value === value || tweet.user_id === user.value.id
+  }
+}
+
+
 
 </script>

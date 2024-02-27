@@ -1,5 +1,9 @@
 class MembersController < ApplicationController
-  # before_action :authenticate_user!
+
+  def index
+    members = User.likes_ranking
+    render json: members
+  end
 
   def show
     user = get_user_from_token

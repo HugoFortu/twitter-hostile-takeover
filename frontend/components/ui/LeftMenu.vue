@@ -13,9 +13,9 @@
             size="large"
         >
           <template v-slot:prepend>
-            <v-icon size="x-large" color="indigo-lighten-1"></v-icon>
+            <v-icon size="x-large" color="#363636"></v-icon>
           </template>
-          Home
+          Accueil
         </v-btn>
       </v-col>
       <v-col
@@ -29,7 +29,7 @@
             size="large"
         >
           <template v-slot:prepend>
-            <v-icon size="x-large" color="indigo-lighten-1"></v-icon>
+            <v-icon size="x-large" color="#363636"></v-icon>
           </template>
           Mes Tweets
         </v-btn>
@@ -46,7 +46,7 @@
             size="large"
         >
           <template v-slot:prepend>
-            <v-icon size="x-large" color="indigo-lighten-1"></v-icon>
+            <v-icon size="x-large" color="#363636"></v-icon>
           </template>
           Home
         </v-btn>

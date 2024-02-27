@@ -61,7 +61,7 @@
           >
           <v-btn
             @click="displayEmojis"
-            density="compact"
+            class="text-h5"
           >
           😆
           </v-btn>
@@ -79,7 +79,6 @@
           <v-btn
             @click="sendTweet"
             :disabled="image === null && emojisText === ''"
-            density="compact"
           >
             Modifier
           </v-btn>
