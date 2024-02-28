@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     if @like.save
       @like.tweet.grade += @like.value
       @like.tweet.save
-      render json: @like, status: :created, location: @like
+      render json: @like.tweet.grade, status: :created
     else
       @like.errors
       render json: @like.errors, status: :unprocessable_entity
@@ -18,6 +18,7 @@ class LikesController < ApplicationController
     @like.tweet.grade -= @like.value
     @like.tweet.save
     @like.destroy
+    render json: @like.tweet.grade
   end
 
   private

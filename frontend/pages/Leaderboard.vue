@@ -25,6 +25,7 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
 const users = ref([]);
 const config = useRuntimeConfig();
 const index = () => {
