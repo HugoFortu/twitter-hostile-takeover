@@ -51,6 +51,12 @@ docker-compose exec backend rails db:create db:migrate db:seed
 
 You can now go to http://localhost:3000 and create your account.
 
+You can launch Rspec test with 
+
+```bash
+docker-compose exec backend bundle exec rspec
+```
+
 You can close docker-compose up with Ctrl + C
 
 ## **Warnings**
