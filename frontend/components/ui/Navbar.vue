@@ -55,6 +55,7 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { useAuthStore } from "~/store/auth";
 const route = useRoute()
 const authStore = useAuthStore();

@@ -19,6 +19,7 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
 import tweetList from "~/components/tweets/List.vue";
 import NewTweet from "~/components/tweets/New.vue";
 import { storeToRefs } from "pinia";

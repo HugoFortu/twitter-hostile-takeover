@@ -80,6 +80,7 @@ import EmojiPicker from 'vue3-emoji-picker'
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "~/store/auth";
 import 'vue3-emoji-picker/css'
+import { ref } from "vue";
 
 const emit = defineEmits();
 const config = useRuntimeConfig();

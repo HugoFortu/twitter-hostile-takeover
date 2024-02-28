@@ -22,6 +22,7 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "~/store/auth";
 import NewTweet from "~/components/tweets/New.vue";

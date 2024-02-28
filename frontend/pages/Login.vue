@@ -4,9 +4,7 @@
           <v-card-title>
             Inscription
           </v-card-title>
-          <v-col
-
-            >
+          <v-col>
             <v-text-field
               v-model="pseudo"
               label="Pseudo"
@@ -14,9 +12,7 @@
               required
             ></v-text-field>
           </v-col>
-          <v-col
-
-          >
+          <v-col>
             <v-text-field
               v-model="subEmail"
               label="Email"
@@ -24,8 +20,7 @@
               required
             ></v-text-field>
           </v-col>
-          <v-col
-          >
+          <v-col>
             <v-text-field
               v-model="subPassword"
               label="Mot de passe"
@@ -110,7 +105,6 @@
 
 <script setup>
 import { ref } from "vue";
-
 const config = useRuntimeConfig();
 const newAccount = ref(false);
 const email = ref("");
@@ -150,13 +144,12 @@ const login = () => {
         password: password.value
       }
     },
-  })
-      .then((response) => {
-        if (response.ok) {
-          sessionStorage.setItem("token", response.headers.get("authorization").split(' ')[1]);
-          sessionStorage.setItem("isLogged", "true");
-          return navigateTo('/');
-        }
-      })
+  }).then((response) => {
+      if (response.ok) {
+        sessionStorage.setItem("token", response.headers.get("authorization").split(' ')[1]);
+        sessionStorage.setItem("isLogged", "true");
+        return navigateTo('/');
+      }
+    })
 }
 </script>

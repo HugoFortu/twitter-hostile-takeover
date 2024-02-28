@@ -75,6 +75,7 @@
   </div>
 </template>
 <script setup>
+import { ref } from "vue";
 import { useAuthStore } from "~/store/auth";
 import EditTweet from "~/components/tweets/Edit.vue";
 const authStore = useAuthStore();
