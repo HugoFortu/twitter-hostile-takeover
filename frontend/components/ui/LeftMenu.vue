@@ -1,6 +1,6 @@
 <template>
   <v-container class="mt-8">
-    <v-card class="left-menu" min-height="85vh" max-width="20vw">
+    <v-card class="left-menu" max-width="20vw">
       <v-col
           class="text-center"
       >

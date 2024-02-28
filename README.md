@@ -51,9 +51,13 @@ docker-compose exec backend rails db:create db:migrate db:seed
 
 You can now go to http://localhost:3000 and create your account.
 
+You can close docker-compose up with Ctrl + C
+
 ## **Warnings**
 
-Sometimes, when you run 'docker-compose up', the frontend container crash.
+Sometimes, when you run 'docker-compose up', the frontend container crash with this error :
+[nitro] [uncaughtException] Error: listen EADDRINUSE: address already in use /tmp/nitro/worker-29-1.sock
+
 I didn't have the time to fix it totally, but you can use next command to solve it temporarily
 
 ```bash
